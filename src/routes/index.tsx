@@ -109,6 +109,15 @@ const CONFIG: Record<CountryCode, CountryConfig> = {
   },
 };
 
+/** Capturas de pruebas sociales, tipadas para evitar inferencia vacía en el map. */
+const SOCIAL_PROOF: ReadonlyArray<{ asset_id: string; url: string }> = [
+  chat1,
+  chat2,
+  chat3,
+  chat4,
+  chat5,
+];
+
 const STORAGE_KEY = "geoCountry";
 
 function isCountryCode(value: string | null): value is CountryCode {
