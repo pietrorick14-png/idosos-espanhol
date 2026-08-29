@@ -572,7 +572,7 @@ function LandingPage() {
             Mensajes reales de profesionales que ya están aplicando el material en sus sesiones.
           </p>
           <div className="social-carousel" aria-label="Pruebas sociales">
-            {[chat1, chat2, chat3, chat4, chat5].map((chat, index) => (
+            {SOCIAL_PROOF.map((chat, index) => (
               <img
                 key={chat.asset_id}
                 className="chat"
