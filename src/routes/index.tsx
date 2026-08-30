@@ -245,9 +245,27 @@ function LandingPage() {
       <header className="hero">
         <div className="wrap">
           <div className="avatars">
-            <span className="avatar" />
-            <span className="avatar" />
-            <span className="avatar" />
+            <img
+              className="avatar"
+              src="/images/profissional-fisioterapeuta.webp"
+              alt="Fisioterapeuta"
+              width={160}
+              height={160}
+            />
+            <img
+              className="avatar"
+              src="/images/profissional-educacao-fisica.webp"
+              alt="Profesional de educación física"
+              width={160}
+              height={160}
+            />
+            <img
+              className="avatar"
+              src="/images/profissional-terapeuta.webp"
+              alt="Terapeuta ocupacional"
+              width={160}
+              height={160}
+            />
           </div>
           <div className="users">
             <b>+1.700</b> profesionales usándolo
@@ -384,7 +402,7 @@ function LandingPage() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 30 }}>
-            <Cta href="#pricing">QUIERO MI KIT AHORA →</Cta>
+            <Cta href="#kit-completo">QUIERO MI KIT AHORA →</Cta>
             <div className="trust">
               🛡 Compra 100% segura · Acceso inmediato · Garantía de 7 días
             </div>
@@ -550,29 +568,7 @@ function LandingPage() {
             </p>
           </div>
           <div className="pricing-grid">
-            <article className="price-card">
-              <div className="delivery">⚡ ENTREGA DIGITAL</div>
-              <h3>Kit Básico</h3>
-              <div className="sub">Lo esencial para comenzar</div>
-              <div className="old-price">{prices.basicOld}</div>
-              <div className="new-price">{prices.basic}</div>
-              <div className="one-time">Pago único</div>
-              <ul className="features">
-                <li>La mitad del material</li>
-                <li>Actividades organizadas por nivel</li>
-                <li>Aplicaciones prácticas en las sesiones</li>
-                <li>Acceso digital</li>
-              </ul>
-              <div style={{ fontWeight: 900, marginTop: 16 }}>No incluye</div>
-              <ul className="features no">
-                <li>+40 Actividades para Movilidad Reducida</li>
-                <li>+35 Actividades para Recuperación Física</li>
-                <li>Guía de Evaluación Física</li>
-              </ul>
-              <Cta href={prices.checkoutBasic}>ACCEDER AHORA</Cta>
-            </article>
-
-            <article className="price-card featured">
+            <article id="kit-completo" className="price-card featured">
               <div className="badge">Más Elegido</div>
               <div className="delivery">⚡ ENTREGA DIGITAL</div>
               <h3>Kit Completo</h3>
@@ -600,6 +596,28 @@ function LandingPage() {
                 <li>🎁 Guía de Evaluación Física para Adultos Mayores</li>
               </ul>
               <Cta href={prices.checkoutComplete}>¡QUIERO EL COMPLETO!</Cta>
+            </article>
+
+            <article className="price-card">
+              <div className="delivery">⚡ ENTREGA DIGITAL</div>
+              <h3>Kit Básico</h3>
+              <div className="sub">Lo esencial para comenzar</div>
+              <div className="old-price">{prices.basicOld}</div>
+              <div className="new-price">{prices.basic}</div>
+              <div className="one-time">Pago único</div>
+              <ul className="features">
+                <li>La mitad del material</li>
+                <li>Actividades organizadas por nivel</li>
+                <li>Aplicaciones prácticas en las sesiones</li>
+                <li>Acceso digital</li>
+              </ul>
+              <div style={{ fontWeight: 900, marginTop: 16 }}>No incluye</div>
+              <ul className="features no">
+                <li>+40 Actividades para Movilidad Reducida</li>
+                <li>+35 Actividades para Recuperación Física</li>
+                <li>Guía de Evaluación Física</li>
+              </ul>
+              <Cta href={prices.checkoutBasic}>ACCEDER AHORA</Cta>
             </article>
           </div>
         </div>
@@ -637,7 +655,7 @@ function LandingPage() {
               Garantía de <em style={{ color: "var(--green)" }}>7 Días</em>
             </h2>
             <p>Pruébalo sin riesgo. Si no te gusta, te devolvemos tu dinero, sin preguntas.</p>
-            <Cta href={prices.checkoutComplete}>COMPRAR CON SEGURIDAD</Cta>
+            <Cta href="#kit-completo">COMPRAR CON SEGURIDAD</Cta>
           </div>
         </div>
       </section>
