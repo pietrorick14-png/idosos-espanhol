@@ -303,29 +303,64 @@ function LandingPage() {
           </h2>
           <div className="two-col">
             <div className="product-stack">
-              <img className="stack-img s1" src={pgFlex.url} alt="Página de flexibilidad" loading="lazy" />
-              <img className="stack-img s2" src={pgEquip.url} alt="Página con equipos" loading="lazy" />
+              <img
+                className="stack-img s1"
+                src={pgFlex.url}
+                alt="Página de flexibilidad"
+                loading="lazy"
+              />
+              <img
+                className="stack-img s2"
+                src={pgEquip.url}
+                alt="Página con equipos"
+                loading="lazy"
+              />
               <img className="stack-img s3" src={pgCog.url} alt="Página cognitiva" loading="lazy" />
               <img className="stack-img s4" src={pgRoutine.url} alt="Rutina final" loading="lazy" />
             </div>
-            <div>
-              <p>
-                El <b>Kit +1000 Actividades</b> es un material completo de ejercicios adaptados para
-                adultos mayores, organizado <b>por nivel, objetivo y tipo de ejercicio</b>,
-                preparándote para atender, planificar y aplicar cada sesión con confianza,
-                simplificando la rutina de quienes trabajan con adultos mayores todos los días.
-              </p>
-              <p>
-                Con el <b>Kit +1000 Actividades</b>, vas a dejar de improvisar y empezar a aplicar con{" "}
-                <b>claridad</b>, equipado con{" "}
-                <b>fichas, ejercicios ilustrados, progresiones organizadas y bonos exclusivos</b>{" "}
-                listos para usar en sesiones individuales o grupales.
-              </p>
-              <p>
-                Esta es <b>la mejor forma de elevar la calidad de tus sesiones</b>, trabajando con
-                confianza y ofreciendo a tus pacientes más autonomía, movilidad y calidad de vida en
-                el día a día.
-              </p>
+            <div className="kit-benefits" aria-label="Principales ventajas del kit">
+              <article className="kit-benefit">
+                <span className="kit-benefit-number" aria-hidden="true">
+                  01
+                </span>
+                <div className="kit-benefit-copy">
+                  <h3>Todo organizado para ti</h3>
+                  <p>
+                    El <b>Kit +1000 Actividades</b> reúne ejercicios adaptados para adultos mayores,
+                    organizados <b>por nivel, objetivo y tipo de ejercicio</b>, para que puedas
+                    planificar y aplicar cada sesión con confianza.
+                  </p>
+                </div>
+              </article>
+
+              <article className="kit-benefit">
+                <span className="kit-benefit-number" aria-hidden="true">
+                  02
+                </span>
+                <div className="kit-benefit-copy">
+                  <h3>Más claridad, menos improvisación</h3>
+                  <p>
+                    Tendrás{" "}
+                    <b>
+                      fichas, ejercicios ilustrados, progresiones organizadas y bonos exclusivos
+                    </b>{" "}
+                    listos para usar en sesiones individuales o grupales.
+                  </p>
+                </div>
+              </article>
+
+              <article className="kit-benefit kit-benefit-highlight">
+                <span className="kit-benefit-number" aria-hidden="true">
+                  03
+                </span>
+                <div className="kit-benefit-copy">
+                  <h3>Sesiones con más calidad</h3>
+                  <p>
+                    Trabaja con más confianza y ayuda a tus pacientes a conquistar mayor
+                    <b> autonomía, movilidad y calidad de vida</b> en el día a día.
+                  </p>
+                </div>
+              </article>
             </div>
           </div>
 
@@ -448,10 +483,7 @@ function LandingPage() {
               </p>
             </div>
           </div>
-          <div
-            className="gallery"
-            style={{ marginTop: 22, gridTemplateColumns: "repeat(4,1fr)" }}
-          >
+          <div className="gallery" style={{ marginTop: 22, gridTemplateColumns: "repeat(4,1fr)" }}>
             <img src={pgFlex.url} alt="Página del kit" loading="lazy" />
             <img src={pgEquip.url} alt="Página del kit" loading="lazy" />
             <img src={pgRoutine.url} alt="Página del kit" loading="lazy" />
@@ -486,7 +518,8 @@ function LandingPage() {
               <h3>+35 Actividades para Adultos Mayores en Recuperación Física</h3>
               <p>
                 Ejercicios leves para personas en recuperación o con limitaciones físicas. Con una
-                progresión organizada desde actividades más simples hasta niveles de mayor actividad.
+                progresión organizada desde actividades más simples hasta niveles de mayor
+                actividad.
               </p>
               <div className="value">Valor: {prices.bonus2}</div>
               <div className="free">Hoy: Gratis</div>
