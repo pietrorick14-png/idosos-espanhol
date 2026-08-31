@@ -63,7 +63,7 @@ const BASE_PRICES = {
   basicOld: "US$19",
   completeOld: "US$27",
   checkoutBasic: "#",
-  checkoutComplete: "#",
+  checkoutComplete: "https://pay.hotmart.com/V107385465P",
 } as const;
 
 const CONFIG: Record<CountryCode, CountryConfig> = {
