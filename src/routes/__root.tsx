@@ -99,6 +99,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Security-Policy" content="font-src 'self' data:" />
         <meta name="theme-color" content="#fff9f1" />
         <title>+1000 Ejercicios Adaptados para Adultos Mayores</title>
         <meta

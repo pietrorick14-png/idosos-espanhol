@@ -12,7 +12,9 @@ import dumbbell320 from "@/assets/optimized/dumbbell-320.webp";
 import equip320 from "@/assets/optimized/equip-320.webp";
 import eval320 from "@/assets/optimized/eval-320.webp";
 import flex320 from "@/assets/optimized/flex-320.webp";
+import hero480 from "@/assets/optimized/hero-480.webp";
 import hero640 from "@/assets/optimized/hero-640.webp";
+import hero768 from "@/assets/optimized/hero-768.webp";
 import hero960 from "@/assets/optimized/hero-960.webp";
 import mobility320 from "@/assets/optimized/mobility-320.webp";
 import routine320 from "@/assets/optimized/routine-320.webp";
@@ -23,7 +25,10 @@ import chat3 from "@/assets/optimized/chat3-480.webp";
 import chat4 from "@/assets/optimized/chat4-480.webp";
 import chat5 from "@/assets/optimized/chat5-480.webp";
 
-const heroMockup = { url: hero960, srcSet: `${hero640} 640w, ${hero960} 960w` };
+const heroMockup = {
+  url: hero960,
+  srcSet: `${hero480} 480w, ${hero640} 640w, ${hero768} 768w, ${hero960} 960w`,
+};
 const pgFlex = { url: flex320 };
 const pgEquip = { url: equip320 };
 const pgCog = { url: cog320 };
@@ -582,7 +587,7 @@ function LandingPage() {
             <div className="bonus-grid">
               <article className="bonus">
                 <img
-                  src={bonus1.url}
+                  src={bonus1}
                   alt="Bono de movilidad reducida"
                   width={900}
                   height={900}
@@ -601,7 +606,7 @@ function LandingPage() {
               </article>
               <article className="bonus">
                 <img
-                  src={bonus2.url}
+                  src={bonus2}
                   alt="Bono de recuperación física"
                   width={900}
                   height={900}
@@ -621,7 +626,7 @@ function LandingPage() {
               </article>
               <article className="bonus">
                 <img
-                  src={bonus3.url}
+                  src={bonus3}
                   alt="Guía de evaluación física"
                   width={900}
                   height={900}
