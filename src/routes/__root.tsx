@@ -4,6 +4,42 @@ import type { CSSProperties, ReactNode } from "react";
 import poppins900 from "../assets/fonts/poppins-900-latin.woff2";
 import landingCss from "../styles/landing.css?inline";
 
+const UTMIFY_LOADER = `(() => {
+  const boot = () => {
+    if (window.__utmifyScriptsLoaded) return;
+    window.__utmifyScriptsLoaded = true;
+    window.pixelId = "6a94ec4c1a4808be6eaea8f4";
+
+    const utms = document.createElement("script");
+    utms.id = "utmify-utms";
+    utms.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+    utms.async = true;
+    utms.defer = true;
+    utms.fetchPriority = "low";
+    utms.setAttribute("data-utmify-prevent-subids", "");
+
+    const pixel = document.createElement("script");
+    pixel.id = "utmify-pixel";
+    pixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+    pixel.async = true;
+    pixel.defer = true;
+    pixel.fetchPriority = "low";
+
+    document.head.append(utms, pixel);
+  };
+
+  const schedule = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(boot, { timeout: 2000 });
+    } else {
+      window.setTimeout(boot, 0);
+    }
+  };
+
+  if (document.readyState === "complete") schedule();
+  else window.addEventListener("load", schedule, { once: true });
+})();`;
+
 const pageStyle: CSSProperties = {
   minHeight: "100vh",
   display: "grid",
@@ -101,7 +137,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           httpEquiv="Content-Security-Policy"
-          content="script-src 'unsafe-inline'; font-src 'self' data:"
+          content="script-src 'unsafe-inline' https://cdn.utmify.com.br https://connect.facebook.net https://analytics.tiktok.com https://cdn.jsdelivr.net; font-src 'self' data:"
         />
         <meta name="theme-color" content="#fff9f1" />
         <title>+1000 Ejercicios Adaptados para Adultos Mayores</title>
@@ -119,6 +155,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="preload" as="font" href={poppins900} type="font/woff2" crossOrigin="anonymous" />
         <style dangerouslySetInnerHTML={{ __html: landingCss }} />
+        <script id="utmify-loader" dangerouslySetInnerHTML={{ __html: UTMIFY_LOADER }} />
       </head>
       <body>{children}</body>
     </html>
