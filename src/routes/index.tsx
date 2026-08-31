@@ -62,7 +62,7 @@ const BASE_PRICES = {
   complete: "US$10",
   basicOld: "US$19",
   completeOld: "US$27",
-  checkoutBasic: "#",
+  checkoutBasic: "https://pay.hotmart.com/D107385538N",
   checkoutComplete: "https://pay.hotmart.com/V107385465P",
 } as const;
 
