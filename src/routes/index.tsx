@@ -36,6 +36,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "preload", as: "image", href: heroMockup.url, type: "image/webp" }],
   }),
   component: LandingPage,
 });
@@ -251,6 +252,7 @@ function LandingPage() {
               alt="Fisioterapeuta"
               width={160}
               height={160}
+              decoding="async"
             />
             <img
               className="avatar"
@@ -258,6 +260,7 @@ function LandingPage() {
               alt="Profesional de educación física"
               width={160}
               height={160}
+              decoding="async"
             />
             <img
               className="avatar"
@@ -265,6 +268,7 @@ function LandingPage() {
               alt="Terapeuta ocupacional"
               width={160}
               height={160}
+              decoding="async"
             />
           </div>
           <div className="users">
@@ -325,16 +329,38 @@ function LandingPage() {
                 className="stack-img s1"
                 src={pgFlex.url}
                 alt="Página de flexibilidad"
+                width={787}
+                height={900}
+                decoding="async"
                 loading="lazy"
               />
               <img
                 className="stack-img s2"
                 src={pgEquip.url}
                 alt="Página con equipos"
+                width={787}
+                height={900}
+                decoding="async"
                 loading="lazy"
               />
-              <img className="stack-img s3" src={pgCog.url} alt="Página cognitiva" loading="lazy" />
-              <img className="stack-img s4" src={pgRoutine.url} alt="Rutina final" loading="lazy" />
+              <img
+                className="stack-img s3"
+                src={pgCog.url}
+                alt="Página cognitiva"
+                width={720}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
+              <img
+                className="stack-img s4"
+                src={pgRoutine.url}
+                alt="Rutina final"
+                width={787}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
             </div>
             <div className="kit-benefits" aria-label="Principales ventajas del kit">
               <article className="kit-benefit">
@@ -384,19 +410,47 @@ function LandingPage() {
 
           <div className="category-grid">
             <div className="cat-card">
-              <img src={pgEquip.url} alt="Ejercicios con equipos" loading="lazy" />
+              <img
+                src={pgEquip.url}
+                alt="Ejercicios con equipos"
+                width={787}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>Ejercicios con Equipos</h3>
             </div>
             <div className="cat-card">
-              <img src={pgFlex.url} alt="Ejercicios sin equipos" loading="lazy" />
+              <img
+                src={pgFlex.url}
+                alt="Ejercicios sin equipos"
+                width={787}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>Ejercicios sin Equipos</h3>
             </div>
             <div className="cat-card">
-              <img src={pgCog.url} alt="Ejercicios cognitivos" loading="lazy" />
+              <img
+                src={pgCog.url}
+                alt="Ejercicios cognitivos"
+                width={720}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>Ejercicios Cognitivos</h3>
             </div>
             <div className="cat-card">
-              <img src={pgEval.url} alt="Guía de evaluación física" loading="lazy" />
+              <img
+                src={pgEval.url}
+                alt="Guía de evaluación física"
+                width={675}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>Guía de Evaluación Física</h3>
             </div>
           </div>
@@ -416,12 +470,54 @@ function LandingPage() {
             Mira un poco <em>de las páginas</em>
           </h2>
           <div className="gallery">
-            <img src={pgFlex.url} alt="Flexión anterior sentada" loading="lazy" />
-            <img src={pgMobility.url} alt="Actividades de movilidad reducida" loading="lazy" />
-            <img src={pgEquip.url} alt="Ejercicios con mancuernas" loading="lazy" />
-            <img src={pgDumbbell.url} alt="Ejercicios con elástico" loading="lazy" />
-            <img src={pgRoutine.url} alt="Rutina final" loading="lazy" />
-            <img src={pgWalk.url} alt="Marcha con apoyo" loading="lazy" />
+            <img
+              src={pgFlex.url}
+              alt="Flexión anterior sentada"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgMobility.url}
+              alt="Actividades de movilidad reducida"
+              width={720}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgEquip.url}
+              alt="Ejercicios con mancuernas"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgDumbbell.url}
+              alt="Ejercicios con elástico"
+              width={720}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgRoutine.url}
+              alt="Rutina final"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgWalk.url}
+              alt="Marcha con apoyo"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
           </div>
           <div className="check-grid">
             <div className="check">Actividades organizadas por nivel y objetivo</div>
@@ -501,11 +597,39 @@ function LandingPage() {
               </p>
             </div>
           </div>
-          <div className="gallery" style={{ marginTop: 22, gridTemplateColumns: "repeat(4,1fr)" }}>
-            <img src={pgFlex.url} alt="Página del kit" loading="lazy" />
-            <img src={pgEquip.url} alt="Página del kit" loading="lazy" />
-            <img src={pgRoutine.url} alt="Página del kit" loading="lazy" />
-            <img src={pgWalk.url} alt="Página del kit" loading="lazy" />
+          <div className="gallery objection-gallery">
+            <img
+              src={pgFlex.url}
+              alt="Página del kit"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgEquip.url}
+              alt="Página del kit"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgRoutine.url}
+              alt="Página del kit"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
+            <img
+              src={pgWalk.url}
+              alt="Página del kit"
+              width={787}
+              height={900}
+              decoding="async"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -522,7 +646,14 @@ function LandingPage() {
           </p>
           <div className="bonus-grid">
             <article className="bonus">
-              <img src={bonus1.url} alt="Bono de movilidad reducida" loading="lazy" />
+              <img
+                src={bonus1.url}
+                alt="Bono de movilidad reducida"
+                width={900}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>+40 Actividades para Adultos Mayores con Movilidad Reducida</h3>
               <p>
                 Ejercicios adaptados para adultos mayores en silla de ruedas o con dificultad para
@@ -532,7 +663,14 @@ function LandingPage() {
               <div className="free">Hoy: Gratis</div>
             </article>
             <article className="bonus">
-              <img src={bonus2.url} alt="Bono de recuperación física" loading="lazy" />
+              <img
+                src={bonus2.url}
+                alt="Bono de recuperación física"
+                width={900}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>+35 Actividades para Adultos Mayores en Recuperación Física</h3>
               <p>
                 Ejercicios leves para personas en recuperación o con limitaciones físicas. Con una
@@ -543,7 +681,14 @@ function LandingPage() {
               <div className="free">Hoy: Gratis</div>
             </article>
             <article className="bonus">
-              <img src={bonus3.url} alt="Guía de evaluación física" loading="lazy" />
+              <img
+                src={bonus3.url}
+                alt="Guía de evaluación física"
+                width={900}
+                height={900}
+                decoding="async"
+                loading="lazy"
+              />
               <h3>Guía de Evaluación Física para Adultos Mayores</h3>
               <p>
                 Aprende a evaluar la movilidad y las limitaciones antes de comenzar. Más información
@@ -577,9 +722,30 @@ function LandingPage() {
               <div className="new-price">{prices.complete}</div>
               <div className="one-time">Pago único</div>
               <div className="mini-previews">
-                <img src={pgMobility.url} alt="Vista previa del material" loading="lazy" />
-                <img src={pgEquip.url} alt="Vista previa del material" loading="lazy" />
-                <img src={pgCog.url} alt="Vista previa del material" loading="lazy" />
+                <img
+                  src={pgMobility.url}
+                  alt="Vista previa del material"
+                  width={720}
+                  height={900}
+                  decoding="async"
+                  loading="lazy"
+                />
+                <img
+                  src={pgEquip.url}
+                  alt="Vista previa del material"
+                  width={787}
+                  height={900}
+                  decoding="async"
+                  loading="lazy"
+                />
+                <img
+                  src={pgCog.url}
+                  alt="Vista previa del material"
+                  width={720}
+                  height={900}
+                  decoding="async"
+                  loading="lazy"
+                />
               </div>
               <ul className="features">
                 <li>+1000 Actividades y Ejercicios para Adultos Mayores</li>
@@ -640,6 +806,7 @@ function LandingPage() {
                 alt={`Prueba social ${index + 1}`}
                 width={760}
                 height={542}
+                decoding="async"
                 loading="lazy"
               />
             ))}

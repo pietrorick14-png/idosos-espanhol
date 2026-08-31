@@ -15,6 +15,8 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
   margin: 0;
@@ -30,6 +32,12 @@ body {
   color: var(--ink);
   background: white;
   line-height: 1.45;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+.lp-root {
+  width: 100%;
+  overflow-x: clip;
 }
 img {
   max-width: 100%;
@@ -211,6 +219,12 @@ h1 {
     0 18px 30px #079c6330;
   text-transform: uppercase;
   font-size: 16px;
+  line-height: 1.2;
+  min-height: 52px;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  touch-action: manipulation;
   transition: 0.15s;
 }
 .cta:hover {
@@ -225,7 +239,7 @@ h1 {
 section {
   padding: 58px 0;
   content-visibility: auto;
-  contain-intrinsic-size: 900px;
+  contain-intrinsic-size: auto 900px;
 }
 .soft {
   background: #f8faf9;
@@ -242,6 +256,7 @@ section {
 .product-stack {
   position: relative;
   height: 550px;
+  min-width: 0;
 }
 .stack-img {
   position: absolute;
@@ -286,6 +301,7 @@ section {
   border-radius: 18px;
   background: linear-gradient(145deg, #fff, #fbfdfc);
   box-shadow: 0 10px 26px rgba(20, 55, 39, 0.07);
+  min-width: 0;
 }
 .kit-benefit-number {
   display: grid;
@@ -397,6 +413,7 @@ section {
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 9px 22px #1421120a;
+  min-width: 0;
 }
 .aud .ic {
   font-size: 31px;
@@ -414,11 +431,16 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 14px;
 }
+.objection-gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 22px;
+}
 .ob {
   border: 1px solid #e5e5e5;
   border-radius: 18px;
   padding: 20px;
   background: #fff;
+  min-width: 0;
 }
 .ob strong {
   display: block;
@@ -452,6 +474,7 @@ section {
   border: 1px solid #e9e9e9;
   box-shadow: var(--shadow);
   text-align: center;
+  min-width: 0;
 }
 .bonus img {
   height: 330px;
@@ -494,6 +517,7 @@ section {
   padding: 26px;
   position: relative;
   box-shadow: 0 10px 28px #18251d0b;
+  min-width: 0;
 }
 .price-card.featured {
   border: 3px solid #1ea672;
@@ -648,6 +672,9 @@ section {
   gap: 20px;
   padding: 19px 2px;
   font-weight: 850;
+  color: var(--ink);
+  min-height: 56px;
+  touch-action: manipulation;
   cursor: pointer;
 }
 .faq-a {
@@ -693,6 +720,9 @@ footer {
   border: 1px solid #4b6452;
   border-radius: 10px;
   padding: 8px 10px;
+  min-height: 44px;
+  font-size: 16px;
+  touch-action: manipulation;
 }
 
 .hero-mockup {
@@ -720,6 +750,9 @@ footer {
   }
   .gallery {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .objection-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .aud-grid {
     grid-template-columns: 1fr;
@@ -770,8 +803,8 @@ footer {
     padding-top: 13px;
   }
   h1 {
-    font-size: 42px;
-    letter-spacing: -2px;
+    font-size: clamp(31px, 11vw, 42px);
+    letter-spacing: -1.7px;
   }
   .eyebrow {
     font-size: 14px;
@@ -792,6 +825,10 @@ footer {
   }
   .hero-mockup {
     margin-top: 4px !important;
+  }
+  .cta,
+  .price-card > .cta {
+    width: 100%;
   }
   .section-title {
     font-size: 31px;
@@ -848,6 +885,10 @@ footer {
   .gallery {
     gap: 7px;
   }
+  .objection-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
   .check {
     font-size: 13px;
     padding: 11px;
@@ -861,6 +902,13 @@ footer {
   .new-price {
     font-size: 48px;
   }
+  .price-card {
+    padding: 22px 18px;
+  }
+  .chat {
+    min-width: min(285px, 86vw);
+    width: min(285px, 86vw);
+  }
   .guarantee {
     padding: 26px 18px;
   }
@@ -869,5 +917,18 @@ footer {
   }
   section {
     padding: 42px 0;
+  }
+  .geo {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .cta,
+  .plus {
+    transition: none;
   }
 }
