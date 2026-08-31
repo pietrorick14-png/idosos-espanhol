@@ -1,69 +1,68 @@
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
+import type { CSSProperties, ReactNode } from "react";
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import poppins900 from "../assets/fonts/poppins-900-latin.woff2";
+import landingCss from "../styles/landing.css?inline";
+
+const pageStyle: CSSProperties = {
+  minHeight: "100vh",
+  display: "grid",
+  placeItems: "center",
+  padding: 16,
+  background: "#fff",
+  color: "#172033",
+  fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+};
+
+const contentStyle: CSSProperties = { width: "100%", maxWidth: 448, textAlign: "center" };
+
+const primaryLinkStyle: CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: 44,
+  padding: "10px 16px",
+  borderRadius: 8,
+  background: "#172033",
+  color: "#fff",
+  fontSize: 14,
+  fontWeight: 700,
+  textDecoration: "none",
+};
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div style={pageStyle}>
+      <div style={contentStyle}>
+        <h1 style={{ margin: 0, fontSize: 72, lineHeight: 1, fontWeight: 800 }}>404</h1>
+        <h2 style={{ margin: "16px 0 0", fontSize: 22 }}>Página no encontrada</h2>
+        <p style={{ margin: "8px 0 24px", color: "#5e6874", fontSize: 14 }}>
+          La página que buscas no existe o fue movida.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <a href="/" style={primaryLinkStyle}>
+          Volver al inicio
+        </a>
       </div>
     </div>
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error }: { error: Error; reset: () => void }) {
   console.error(error);
-  const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+    <div style={pageStyle}>
+      <div style={contentStyle}>
+        <h1 style={{ margin: 0, fontSize: 22 }}>No fue posible cargar esta página</h1>
+        <p style={{ margin: "8px 0 24px", color: "#5e6874", fontSize: 14 }}>
+          Actualiza la página o vuelve al inicio para intentarlo nuevamente.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
+          <a href="" style={primaryLinkStyle}>
+            Intentar de nuevo
+          </a>
+          <a href="/" style={{ ...primaryLinkStyle, background: "#eef1f3", color: "#172033" }}>
+            Volver al inicio
           </a>
         </div>
       </div>
@@ -85,19 +84,7 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
     ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap",
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
+    links: [{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
   }),
 
   shellComponent: RootShell,
@@ -108,14 +95,28 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
-        <HeadContent />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#fff9f1" />
+        <title>+1000 Ejercicios Adaptados para Adultos Mayores</title>
+        <meta
+          name="description"
+          content="Kit con más de 1000 ejercicios y actividades adaptadas para adultos mayores, organizados por nivel y objetivo."
+        />
+        <meta property="og:title" content="+1000 Ejercicios Adaptados para Adultos Mayores" />
+        <meta
+          property="og:description"
+          content="Kit con más de 1000 ejercicios y actividades adaptadas para adultos mayores, organizados por nivel y objetivo."
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="preload" as="font" href={poppins900} type="font/woff2" crossOrigin="anonymous" />
+        <style dangerouslySetInnerHTML={{ __html: landingCss }} />
       </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

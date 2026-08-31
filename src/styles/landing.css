@@ -1,3 +1,39 @@
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-400-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-600-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-700-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-800-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-900-latin.woff2") format("woff2");
+}
+
 :root {
   --ink: #1c2635;
   --muted: #5e6874;
@@ -171,7 +207,7 @@ h1 {
   place-items: center;
   border-radius: 9px;
   background: #e9f7f1;
-  color: #0b8058;
+  color: #087451;
 }
 .arrow {
   opacity: 0.35;
@@ -208,7 +244,7 @@ h1 {
   justify-content: center;
   gap: 8px;
   border: 0;
-  background: linear-gradient(180deg, #24b67e, #0f8a60);
+  background: linear-gradient(180deg, #087451, #055a3d);
   color: white;
   font-weight: 950;
   text-decoration: none;
@@ -310,7 +346,7 @@ section {
   height: 42px;
   border-radius: 13px;
   background: #dff4eb;
-  color: #0b8058;
+  color: #087451;
   font-size: 12px;
   font-weight: 950;
   letter-spacing: 0.5px;
@@ -336,7 +372,7 @@ section {
   background: linear-gradient(135deg, #effbf5, #fff);
 }
 .kit-benefit-highlight .kit-benefit-number {
-  background: linear-gradient(145deg, #1cac78, #0b815a);
+  background: linear-gradient(145deg, #087451, #055a3d);
   color: #fff;
   box-shadow: 0 7px 16px rgba(13, 138, 94, 0.22);
 }
@@ -399,7 +435,7 @@ section {
   height: 23px;
   border-radius: 7px;
   background: #dff4eb;
-  color: #0a835a;
+  color: #087451;
   margin-right: 9px;
 }
 .aud-grid {
@@ -490,7 +526,7 @@ section {
 }
 .value {
   text-decoration: line-through;
-  color: #7b7e82;
+  color: #626970;
   font-weight: 700;
 }
 .free {
@@ -534,7 +570,7 @@ section {
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background: #1ea672;
+  background: #087451;
   color: #fff;
   border-radius: 999px;
   padding: 7px 15px;
@@ -557,7 +593,7 @@ section {
 }
 .old-price {
   text-decoration: line-through;
-  color: #9b9fa2;
+  color: #626970;
   font-size: 20px;
   font-weight: 800;
   margin-top: 12px;
@@ -573,7 +609,7 @@ section {
 .one-time {
   font-size: 12px;
   font-weight: 700;
-  color: #747a80;
+  color: #5f686f;
 }
 .features {
   list-style: none;
@@ -587,13 +623,13 @@ section {
 }
 .features li:before {
   content: "✓";
-  color: #0b9261;
+  color: #087451;
   font-weight: 950;
   margin-right: 8px;
 }
 .features.no li:before {
   content: "✕";
-  color: #d85b52;
+  color: #b23f38;
 }
 .mini-previews {
   display: grid;
@@ -670,22 +706,30 @@ section {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
+  border: 0;
+  background: none;
   padding: 19px 2px;
+  text-align: left;
+  font: inherit;
   font-weight: 850;
   color: var(--ink);
   min-height: 56px;
+  list-style: none;
   touch-action: manipulation;
   cursor: pointer;
 }
-.faq-a {
+.faq-q::-webkit-details-marker {
   display: none;
+}
+.faq-a {
   color: #5b6269;
   padding: 0 4px 18px;
 }
-.faq-item.open .faq-a {
-  display: block;
+.faq-item:not([open]) .faq-a {
+  display: none;
 }
-.faq-item.open .plus {
+.faq-item[open] .plus {
   transform: rotate(45deg);
 }
 .plus {
