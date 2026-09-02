@@ -221,7 +221,6 @@ function LandingPage() {
             <div className="eyebrow">
               <em>ejercicios adaptados, organizados por nivel y objetivo</em>
             </div>
-            <div className="hero-claim">para transformar tus sesiones</div>
             <div className="pain-row">
               <div className="pain">Sin preparar la sesión desde cero</div>
               <div className="pain">Sin improvisar durante la sesión</div>
