@@ -115,7 +115,7 @@ const SOCIAL_PROOF = [chat1, chat2, chat3, chat4, chat5] as const;
 
 const STORAGE_KEY = "geoCountry";
 
-const COUNTRY_SCRIPT = `(()=>{const config=${JSON.stringify(CONFIG)};const storageKey=${JSON.stringify(STORAGE_KEY)};const valid=code=>Object.prototype.hasOwnProperty.call(config,code);const guess=()=>{try{const lang=(navigator.language||"").toUpperCase();const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"";if(tz.includes("Santiago")||tz.includes("Easter"))return"CL";if(tz.includes("Mexico")||lang.includes("MX"))return"MX";if(tz.includes("Bogota")||lang.includes("CO"))return"CO";if(tz.includes("Madrid")||lang.includes("ES-ES"))return"ES"}catch{}return"OTHER"};const apply=code=>{const selected=valid(code)?code:"OTHER";const values=config[selected];document.querySelectorAll("[data-price]").forEach(node=>{const key=node.getAttribute("data-price");if(key&&key in values)node.textContent=values[key]});document.querySelectorAll("[data-checkout]").forEach(node=>{const key=node.getAttribute("data-checkout");if(key&&key in values)node.setAttribute("href",values[key])});const select=document.getElementById("country");if(select)select.value=selected};const today=document.querySelector("[data-today]");if(today)today.textContent=new Intl.DateTimeFormat("es-ES",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date());let country=guess();try{const saved=localStorage.getItem(storageKey);if(saved&&valid(saved))country=saved}catch{}apply(country);const select=document.getElementById("country");select?.addEventListener("change",event=>{const code=event.target.value;apply(code);try{localStorage.setItem(storageKey,code)}catch{}})})();`;
+const COUNTRY_SCRIPT = `(()=>{const config=${JSON.stringify(CONFIG)};const storageKey=${JSON.stringify(STORAGE_KEY)};const valid=code=>Object.prototype.hasOwnProperty.call(config,code);const guess=()=>{try{const lang=(navigator.language||"").toUpperCase();const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"";if(tz.includes("Santiago")||tz.includes("Easter"))return"CL";if(tz.includes("Mexico")||lang.includes("MX"))return"MX";if(tz.includes("Bogota")||lang.includes("CO"))return"CO";if(tz.includes("Madrid")||lang.includes("ES-ES"))return"ES"}catch{}return"OTHER"};const apply=code=>{const selected=valid(code)?code:"OTHER";const values=config[selected];document.querySelectorAll("[data-price]").forEach(node=>{const key=node.getAttribute("data-price");if(key&&key in values)node.textContent=values[key]});document.querySelectorAll("[data-checkout]").forEach(node=>{const key=node.getAttribute("data-checkout");if(key&&key in values)node.setAttribute("href",values[key])});const select=document.getElementById("country");if(select)select.value=selected};let country=guess();try{const saved=localStorage.getItem(storageKey);if(saved&&valid(saved))country=saved}catch{}apply(country);const select=document.getElementById("country");select?.addEventListener("change",event=>{const code=event.target.value;apply(code);try{localStorage.setItem(storageKey,code)}catch{}})})();`;
 
 function Cta({
   href,
@@ -174,10 +174,6 @@ function LandingPage() {
 
   return (
     <div className="lp-root">
-      <div className="topbar">
-        DESCUENTO VÁLIDO HASTA HOY <span data-today />
-      </div>
-
       <main>
         <header className="hero">
           <div className="wrap">
